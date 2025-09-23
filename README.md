@@ -1,49 +1,74 @@
-# Expense Tracker
+Expense Tracker
 
-A simple Python CLI tool to log and track your expenses.  
-Records are stored in a local CSV file (or SQLite later), and you can generate summaries by category or date.
+A lightweight Python CLI tool to log and track your expenses.
+Records are stored in a local CSV file (SQLite backend planned).
 
-## Features
-- Add expenses with category, description, and amount
-- Store records in a CSV file
-- View total spending by category
-- View monthly summaries
-- Cross-platform (Windows, macOS, Linux)
+Features
 
-## Roadmap
-- [x] Basic CSV storage
-- [ ] Switch to SQLite backend
-- [ ] CLI flags (e.g. `--add`, `--summary`)
-- [ ] Export charts with Matplotlib or Pandas
+Add expenses with category, description, and amount
 
-## Quick Start
+Store records in a CSV file
+
+View total spending by category
+
+View monthly summaries (with optional --month YYYY-MM)
+
+Cross-platform (Windows, macOS, Linux)
+
+Example Usage
+# Add expenses
+python tracker.py add --amount 12.50 --category food --desc "Lunch"
+python tracker.py add --amount 800 --category rent --desc "October rent"
+
+# Show summary by category
+python tracker.py summary
+
+# Show all months grouped by category
+python tracker.py monthly
+
+# Filter by specific month
+python tracker.py monthly --month 2025-09
+
+Roadmap
+
+[x] Basic CSV storage
+
+[x]CLI flags with argparse (add, summary, monthly)
+
+[ ] Switch to SQLite backend
+
+[ ] Export charts with Matplotlib or Pandas
+
+Quick Start
 
 Clone the repository and set up a virtual environment:
 
-### Linux / macOS
-```bash
-git clone
+Linux / macOS
+git clone 
 cd expense-tracker
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python expense_tracker.py
+python tracker.py --help
 
-
-###POWERSHELL
-git clone
+Windows (PowerShell)
+git clone 
 cd expense-tracker
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-python expense_tracker.py
+python tracker.py --help
 
-
-###CMD
-
+Windows (CMD)
 git clone 
 cd expense-tracker
 python -m venv .venv
 .\.venv\Scripts\activate.bat
 pip install -r requirements.txt
-python expense_tracker.py
+python tracker.py --help
+
+Requirements
+
+Python 3.8+
+
+Pandas (for summaries)
